@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click_📸</title>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Rubik:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        body {
+            background-color: #171717;
+            color: rgb(0, 0, 0);
+        }
+
+        .back {
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+
+        /*  NAVBAR  */
+        nav {
+            position: sticky;
+            top: 0px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: clamp(0.1rem, 2vw, 0.5rem) clamp(0.75rem, 2.5vw, 1.5rem);
+            background-color: #f5f5f5;
+        }
+
+        .menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .navbar_left,
+        .navbar_right {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.2rem, 2vw, 1rem);
+        }
+
+        .navbar_left h1 {
+            font-size: clamp(0.8rem, 4vw, 4rem);
+        }
+
+        .navbar_left i {
+            font-size: clamp(0.2rem, 3vw, 2rem);
+            padding: clamp(0.25rem, 1vw, 0.5rem);
+            outline: clamp(0.15rem, 0.4vw, 0.25rem) solid black;
+            border-radius: 50%;
+        }
+
+        .navbar_box {
+            font-weight: 600;
+            border-bottom: 0.1rem solid rgb(49, 49, 49);
+            /* outline: clamp(0.05rem, 0.1vw, 0.1rem) solid rgb(86, 86, 86); */
+            border-radius: clamp(1rem, 2vw, 2rem);
+            padding: clamp(0rem, 1vw, 1rem) clamp(0.75rem, 2.5vw, 1.25rem);
+            /* background-color: aqua; */
+        }
+
+        .navbar_box a {
+            font-size: clamp(0.6rem, 1vw, 1.1rem);
+            color: rgb(45, 45, 45);
+        }
+
+        /*  MAIN  */
+
+        .main_text {
+            overflow: hidden;
+        }
+
+        .main_text h1 {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            font-size: clamp(1rem, 14vw, 15rem);
+            font-weight: 900;
+        }
+
+        .main_text h4 {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            font-size: clamp(1rem, 3.5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            padding: clamp(0.5rem, 2vw, 1rem);
+        }
+
+        /*  MAIN CONTENT  */
+
+        .main_content,
+        .about_me {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #f5f5f5;
+            padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 3vw, 2rem);
+            column-gap: clamp(0.75rem, 2vw, 1.5rem);
+
+        }
+
+        .main_left {
+            border-radius: clamp(1rem, 3vw, 2rem);
+            background-color: black;
+            width: 45%;
+            height: clamp(10rem, 25vw, 25rem);
+
+        }
+
+        .main_right {
+            width: 55%;
+        }
+
+        .main_right img {
+            width: 100%;
+            height: clamp(10rem, 25vw, 25rem);
+            border-radius: clamp(1rem, 3vw, 2rem);
+            object-fit: cover;
+        }
+
+        .main_left h4 {
+            font-size: clamp(0.3rem, 2vw, 1.5rem);
+            font-weight: 300;
+            color: #f5f5f5;
+            padding: clamp(0.5rem, 3vw, 2.5rem);
+            line-height: clamp(0.5rem, 3vw, 2rem);
+        }
+
+        /*  ABOUT  */
+
+        .about {
+            border-top: clamp(0.1rem, 0.3vw, 0.2rem) solid black;
+            /* padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 3vw, 2rem); */
+            background-color: aquamarine;
+        }
+
+        .about_me {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* background-color: rgb(156, 156, 53); */
+            padding: clamp(2rem, 2vw, 4rem) clamp(1rem, 2vw, 2rem);
+            column-gap: clamp(1rem, 7vw, 4rem);
+        }
+
+        .about_left {
+            padding: clamp(1rem, 2vw, 2rem);
+            width: 30%;
+            height: 40px;
+        }
+
+        .about_me h2 {
+            font-size: clamp(1.3rem, 4vw, 3rem);
+            font-weight: 900;
+        }
+
+        .about_right {
+            width: 70%;
+        }
+
+        .about_right h3 {
+            font-size: clamp(0.5rem, 2.5vw, 2rem);
+            font-weight: 300;
+            line-height: clamp(1rem, 3vw, 5rem);
+        }
+
+        .about_down {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: #f5f5f5;
+            /* background-color: black; */
+            /* overflow: hidden; */
+        }
+
+        .about_img img {
+            height: 80%;
+            width: clamp(5rem, 24vw, 20rem);
+            object-fit: cover;
+            border-radius: clamp(0.5rem, 2vw, 5rem);
+            /* margin-bottom: clamp(1rem, 2vw, 2rem); */
+        }
+
+        /*  FEATURED  */
+
+        .featured_headline h2,
+        .project_headline h2 {
+            color: rgb(199, 199, 199);
+            display: flex;
+            justify-content: center;
+            margin: clamp(2rem, 6vw, 4rem) 0;
+            font-size: clamp(2.2rem, 5vw, 7rem);
+            font-weight: 800;
+        }
+
+        .feature {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: clamp(10rem, 25vw, 15rem);
+            border-radius: clamp(1rem, 3vw, 2rem);
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .feature h4 {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 800;
+            margin: 0 clamp(1rem, 4vw, 3rem);
+            color: #f5f5f5;
+        }
+
+        .fea1 {
+            background-image: url("image/feature/pexels-beyzaa-yurtkuran-279977530-17084305.jpg");
+        }
+
+        .fea2 {
+            background-image: url("image/feature/pexels-chuck-3781266.jpg");
+        }
+
+        .fea3 {
+            background-image: url("image/feature/pexels-ibnulharezmi-4463920.jpg");
+        }
+
+        /*  PROJECTS  */
+
+        .projetcs {
+            background-color: #171717;
+            padding-bottom: clamp(2rem, 6vw, 4rem);
+        }
+
+        .project_img {
+            column-count: 5;
+            /* column-width: clamp(2rem, 20vw, 12rem); */
+            column-gap: clamp(0.75rem, 2vw, 1rem);
+        }
+
+        .project_img div {
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
+        }
+
+        .project_img img {
+            max-width: clamp(17.5rem, 20vw, 15rem);
+            width: 100%;
+            border-radius: clamp(1rem, 3vw, 2rem);
+        }
+
+        /*  FOOTER  */
+
+        .footer {
+            padding-top: clamp(2rem, 6vw, 4rem);
+            background: linear-gradient( #171717,#18181b,#262626,#404040,#525252,
+                    #78716c);
+        }
+
+        .footer_lr {
+            padding: 0 clamp(1rem, 3vw, 3rem);
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: clamp(3rem, 8vw, 5rem);
+        }
+
+        .footer_left h4 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            color:  #f5f5f5;
+        }
+
+        .footer_right a {
+            display: block;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #f5f5f5;
+        }
+
+        .footer h1 {
+            display: flex;
+            justify-content: center;
+            font-size: clamp(3rem, 8vw, 7rem);
+        }
+        .footer_end{
+            text-align: center;
+            background-color:  #171717;
+            color:#f5f5f5
+        }
+        .close {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: block;
+            }
+
+            .navbar_right {
+                position: absolute;
+                top: 0%;
+                right: 0%;
+                background-color: #f5f5f5;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 1rem;
+                width: 180px;
+                height: 100vh;
+                padding: 1.5rem 1rem;
+
+            }
+
+            .navbar_right.expand {
+                display: flex;
+                z-index: 0;
+            }
+
+            .navbar_right.expand~.close {
+                display: block;
+                z-index: 1;
+            }
+
+            .navbar_right.expand~.menu {
+                display: none;
+            }
+
+            .navbar_box {
+                font-weight: 600;
+                display: inline-block;
+                border-radius: 0;
+                border-bottom: 0.1rem thin black;
+                width: 180px;
+
+            }
+
+            .project_img {
+                column-count: 2;
+                /* column-gap: clamp(0.1rem, 1vw, 1rem); */
+            }
+        }
+
+        /* @media (max-width:480px) {
+            html {
+                font-size: 10%;
+            }
+            
+        }
+        @media (min-width:481px) and (max-width:768px) {
+            html {
+                font-size: 20%;
+            }
+            
+        }
+        @media (min-width:769px) and (max-width:1024) {
+            html {
+                font-size: 20%;
+            }
+            
+        }
+        @media (min-width:1025) {
+            html {
+                font-size: 25%;
+            }
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="back">
+
+        <nav>
+            <div>
+                <section class="navbar">
+                    <div class="navbar_left">
+                        <i class="fa-notdog fa-solid fa-camera"></i>
+                        <h1>PHOTOGRAPHY</h1>
+                    </div>
+                    <div class="navbar_right" id="navMenu">
+                        <div class="navbar_box">
+                            <a href="#about" onclick="close_menu()">About</a>
+                        </div>
+                        <div class="navbar_box">
+                            <a href="#feature" onclick="close_menu()">feature</a>
+                        </div>
+                        <div class="navbar_box">
+                            <a href="#project" onclick="close_menu()">project</a>
+                        </div>
+                    </div>
+                    <div class="menu" onclick="menu_bar()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+
+                    <div class="close" onclick="close_menu()">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                </section>
+            </div>
+        </nav>
+        <main>
+            <section class="main_text">
+                <h1>CAPTURING</span></h1>
+                <h4>THE MOMENTS THAT CAPTIVATE YOUR HEART</h4>
+            </section>
+            <section class="main_content">
+                <div class="main_left">
+
+                    <h4>Our work blends natural light with creative composition to produce images that feel warm,
+                        honest,
+                        and
+                        cinematic. Whether it’s a portrait, a wedding, or a lifestyle shoot, We aim for photographs that
+                        are
+                        timeless and emotionally rich.</h2>
+
+                </div>
+                <div class="main_right">
+                    <img src="image\photographer.jpg" alt="">
+                </div>
+            </section>
+            <section class="about" id="about">
+                <div class="about_me">
+                    <div class="about_left">
+                        <h2>ABOUT ME</h2>
+
+                    </div>
+                    <div class="about_right">
+                        <h3>Photography is more than images it’s about connection.
+                            I believe the best photographs happen when people feel comfortable, confident, and
+                            themselves.
+                            My goal is to capture natural expressions, real emotions, and authentic stories through my
+                            lens.
+                            With a focus on detail, lighting, and mood, I create photographs that reflect who you truly
+                            are.
+                        </h3>
+                    </div>
+                </div>
+                <div class="about_down">
+                    <div class="about_img"><img src="image\about\about3.jpg" alt=""></div>
+                    <div class="about_img"><img src="image\about\about1.jpg" alt=""></div>
+                    <div class="about_img"><img src="image\about\about2.jpg" alt=""></div>
+                </div>
+            </section>
+            <section class="featured" id="feature">
+                <div class="featured_headline">
+                    <h2>FEATURED WORKS</h2>
+                </div>
+                <div class="feature fea1">
+                    <h4>ART DIRECTOR</h4>
+                    <h4>2025</h4>
+                </div>
+                <div class="feature fea2">
+                    <h4>2025</h4>
+                    <h4>PHOTOGRAPHER</h4>
+                </div>
+                <div class="feature fea3">
+                    <h4>VIDEOGRAPHER</h4>
+                    <h4>2025</h4>
+                </div>
+            </section>
+            <section class="projetcs" id="project">
+                <div class="project_headline">
+                    <h2>PROJECTS</h2>
+                    <!-- <hr class="hr"> -->
+                </div>
+                <div class="project_img">
+                    <div class="project_img_1"><img src="image\projects\share (1).jpg" alt=""></div>
+                    <div class="project_img_4"><img src="image\projects\share (4).jpg" alt=""></div>
+                    <div class="project_img_7"><img src="image\projects\share (7).jpg" alt=""></div>
+                    <div class="project_img_22"><img src="image\projects\share (22).jpg" alt=""></div>
+                    <div class="project_img_19"><img src="image\projects\share (19).jpg" alt=""></div>
+                    <div class="project_img_9"><img src="image\projects\share (9).jpg" alt=""></div>
+                    <div class="project_img_2"><img src="image\projects\share (2).jpg" alt=""></div>
+                    <div class="project_img_10"><img src="image\projects\share (10).jpg" alt=""></div>
+                    <div class="project_img_6"><img src="image\projects\share (6).jpg" alt=""></div>
+                    <div class="project_img_11"><img src="image\projects\share (11).jpg" alt=""></div>
+                    <div class="project_img_12"><img src="image\projects\share (12).jpg" alt=""></div>
+                    <div class="project_img_3"><img src="image\projects\share (3).jpg" alt=""></div>
+                    <div class="project_img_13"><img src="image\projects\share (13).jpg" alt=""></div>
+                    <div class="project_img_8"><img src="image\projects\share (8).jpg" alt=""></div>
+                    <div class="project_img_14"><img src="image\projects\share (14).jpg" alt=""></div>
+                    <div class="project_img_15"><img src="image\projects\share (15).jpg" alt=""></div>
+                    <div class="project_img_16"><img src="image\projects\share (16).jpg" alt=""></div>
+                    <div class="project_img_5"><img src="image\projects\share (5).jpg" alt=""></div>
+                    <div class="project_img_24"><img src="image\projects\share (24).jpg" alt=""></div>
+                    <div class="project_img_17"><img src="image\projects\share (17).jpg" alt=""></div>
+                    <div class="project_img_18"><img src="image\projects\share (18).jpg" alt=""></div>
+                    <div class="project_img_20"><img src="image\projects\share (20).jpg" alt=""></div>
+                    <div class="project_img_21"><img src="image\projects\share (21).jpg" alt=""></div>
+                    <div class="project_img_23"><img src="image\projects\share (23).jpg" alt=""></div>
+                    <div class="project_img_25"><img src="image\projects\share (25).jpg" alt=""></div>
+                    <div class="project_img_26"><img src="image\projects\share (26).jpg" alt=""></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <section class="footer width">
+
+                <div class="footer_lr">
+                    <div class="footer_left">
+                        <h4>Say hello </h4>
+                        <h4>hellothere@gmail.com</h4>
+                    </div>
+                    <div class="footer_right">
+                        <a href="#">instagram</a>
+                        <a href="#">linkedin</a>
+                        <a href="#">twitter</a>
+                    </div>
+                </div>
+                <div>
+                    <h1>PHOTOGRAPHY</h1>
+                </div>
+                <div class="footer_end">
+                    <p>© 2025 Photography. All rights reserved. Privacy Policy | Terms of Service | Contact Us</p>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+</body>
+<script>
+    function menu_bar() {
+        document.getElementById("navMenu").classList.add("expand");
+    }
+
+    function close_menu() {
+        document.getElementById("navMenu").classList.remove("expand");
+    }
+
+</script>
+
+</html>
